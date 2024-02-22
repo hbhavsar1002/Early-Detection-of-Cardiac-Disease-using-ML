@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Registration Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/registration.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <style>
+                .has-success{
+                        border: 1px solid #32CD32;
+                        border-top: 0px;
+                        border-left: 0px;
+                        border-right: 0px;
+                        border-radius: 4px;
+                        outline: 0 none;
+                        }
+
+                .has-error{
+                    border: 1px solid red;
+                        border-top: 0px;
+                        border-left: 0px;
+                        border-right: 0px;
+                        border-radius: 4px;
+                        outline: 0 none;
+                        }
+            .alert{
+                
+                display: block;
+                background-color: #FEC2C2;
+                padding: 6px;
+                margin: 5px;
+                border-radius: 4px;
+                color: #8B0000;
+                height: auto;
+                display: none;
+                
+                
+            }
+        </style>
+	</head>
+    
+
+	<body>
+
+		<div class="wrapper" >
+			<div class="inner">
+				
+				<form id="form_data">
+					<h3>Registration Form</h3>
+
+                    <div class="alert">
+                        <div id="result"></div>
+                    </div>
+                    
+					<div class="form-group">
+						<input type="text" placeholder="First Name" class="form-control" id="firstname">
+						<input type="text" placeholder="Last Name" class="form-control" id="lastname">
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Username" class="form-control" id="username">
+						<i class="zmdi zmdi-account"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="email" placeholder="Email Address" class="form-control" id="email">
+						<i class="zmdi zmdi-email"></i>
+					</div>
+					<div class="form-wrapper">
+						<select name="" id="gender" class="form-control">
+							<option value="" disabled selected>Gender</option>
+							<option value="male">Male</option>
+							<option value="femal">Female</option>
+							<option value="other">Other</option>
+						</select>
+						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Password" class="form-control" id="pass">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Confirm Password" class="form-control" id="password1">
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<button  type="button" id="register" name="submit">Register
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+                    <div id="op"></div>
+<!-- window.location.href="loggedin.html"; -->
+
+				</form>
+			</div>
+		</div>
+		<script>
+            function pass_validation()
+        {
+            var firstpassword=$("#pass").val();  
+            var secondpassword=$('#password1').val();  
+
+            if(firstpassword == secondpassword){  
+            return true;  
+        }  
+        else{  
+            alert("password must be same!");  
+            return false;  
+        }  
+        } 
+        </script>
+        <script>
+            $(document).ready(function(){
+                
+                $("#firstname").keyup(function(){
+                    
+                        
+                    var regex = /^[a-zA-Z]{1,15}$/;
+                    if(regex.test($("#firstname").val())){
+                   
+                    $("#firstname").removeClass("has-error");
+                        $("#firstname").addClass("has-success");
+                        
+                    }else{
+                       
+                        $("#firstname").addClass("has-error");
+                    } 
+                           
+                })
+                
+                
+                $("#lastname").keyup(function(){
+                    
+                        
+                    var regex = /^[a-zA-Z]{1,15}$/;
+                    if(regex.test($("#lastname").val())){
+                   
+                    $("#lastname").removeClass("has-error");
+                        $("#lastname").addClass("has-success");
+                        
+                    }else{
+                       
+                        $("#lastname").addClass("has-error");
+                    } 
+                    
+            
+                    
+                })
+                
+                $("#username").keyup(function(){
+                    
+                        
+                    var regex = /^[a-zA-Z0-9._@]{2,15}$/;
+                    if(regex.test($("#username").val())){
+                   
+                    $("#username").removeClass("has-error");
+                        $("#username").addClass("has-success");
+                        
+                    }else{
+                       
+                        $("#username").addClass("has-error");
+                    } 
+                    
+            
+                    
+                })
+                
+                $("#email").keyup(function(){
+                    
+                        
+                    var regex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9._]+\.[a-zA-Z]{2,4}$/;
+                    if(regex.test($("#email").val())){
+                   
+                    $("#email").removeClass("has-error");
+                        $("#email").addClass("has-success");
+                        
+                    }else{
+                       
+                        $("#email").addClass("has-error");
+                    } 
+                    
+            
+                    
+                })
+                
+                 $("#pass").keyup(function(){
+                    
+                        
+                    var regex = /^[a-zA-Z0-9.@]{4,15}$/;
+                    if(regex.test($("#pass").val())){
+                   
+                    $("#pass").removeClass("has-error");
+                        $("#pass").addClass("has-success");
+                        
+                    }else{
+                       
+                        $("#pass").addClass("has-error");
+                    } 
+                    
+                })
+                
+                  $("#password1").keyup(function(){
+                    
+                        
+                    var regex = /^[a-zA-Z0-9.@]{4,15}$/;
+                    if(regex.test($("#password1").val())){
+                            if($("#password1").val() == $("#pass").val()){
+                                $("#password1").removeClass("has-error");
+                                $("#password1").addClass("has-success");
+                            }else{
+                                
+                                $("#password1").addClass("has-error");
+                            }
+                        
+                    }
+                      else{
+                       
+                        $("#password1").addClass("has-error");
+                    } 
+                    
+                })
+                
+                $("#register").click(function(event){
+                    
+                    event.preventDefault();
+                    
+                    var firstname = $("#firstname").val();
+                    var lastname = $("#lastname").val();
+                    var username = $("#username").val();
+                    var email = $("#email").val();
+                    var gender = $("#gender").val();
+                    var password = $("#pass").val();
+                       
+                    
+                    var datastring1 = "firstname=" + firstname + " &lastname=" + lastname + "&username=" + username + "&email=" + email + "&gender="+ gender +"&password=" + password;
+                    
+                    console.log(datastring1);
+                    
+                       // var serail = $("#form_data").serialize();
+                
+                    
+                 if ($.trim(firstname).length > 0 & $.trim(lastname).length > 0 & $.trim(username).length > 0 & $.trim(email).length > 0 &  $.trim(pass).length > 0){
+                        
+                        $.ajax({
+                            type:"POST",
+                            url: "signin.php",
+                            data: datastring1,
+                            cache:false,
+                            beforeSend: function(){ $("#register").val('Connecting...');},
+                          success: function(data)
+                            {
+                                $("#op").html(data);
+                                alert(data);
+                                if(data=="success")
+                            {
+                                alert("Registration successful");
+
+                                 window.location.href="home.html";
+                            }
+                            else if(data=="error")
+                            {
+                                alert("error");
+                            }
+                            }
+                        })
+               }
+                    return false;
+                    
+                    });
+                    });
+                    
+        </script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+body{
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+     
+   
+}
+
+input[type=text] {
+  width: 100%;
+ padding: 12px 20px;
+  height: 25px;
+  margin: 8px 0;
+  box-sizing: border-box;
+ 
+  border: 1px solid #3CBC8D;
+  border-radius: 4px;
+  border-top: hidden;
+  border-left: hidden;
+  border-right:hidden;
+
+}
+
+
+select {
+  width: 100%;
+  padding: 0px 20px;    
+  border: 1px solid #3CBC8D;
+  border-radius: 4px;
+  border-top: hidden;
+  border-left: hidden;
+  border-right:hidden;
+}
+
+#info_get{
+    
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+   
+    
+}

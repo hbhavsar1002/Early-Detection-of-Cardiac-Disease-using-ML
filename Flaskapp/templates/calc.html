@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+<link rel="stylesheet" type="text/css" href="../static/main.css">
+<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../static/script.js"></script>
+</head>
+<body>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="zmdi zmdi-long-arrow-up zmdi-hc-2x"></i>
+</button>
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+     <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Start Analyzing</div>
+      <div class="list-group list-group-flush">
+        <a href="{{url_for('home')}}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+        <button class="btn btn-primary" id="menu-toggle">Menu</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item " style="border-bottom: 1px solid black; display: block">
+              <a class="nav-link" href="home.html">Home </a>
+            </li>
+            <li class="nav-item active" style="border-bottom: 1px solid black; display: block">
+              <a class="nav-link" href="infogathering.html">Calculate Here!<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item " style="border-bottom: 1px solid black; display: block">
+              <a class="nav-link " href="contacts.html">
+                Contact us
+              </a>
+
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+       <div id="info_get">
+      <form action={{url_for('result')}} id="info_form" name="info_form" method="POST">
+          <h3>Input details</h3>
+
+          <div id="op"></div>
+          <div id="alert"></div>
+
+           <p> <label for="age">Age:</label> <span id="error">Please Enter valid age</span>
+          <input type="text" id="age" name="age" placeholder="Enter the age"></p>
+
+                <label for="sex">Gender:</label>
+            <p><select id="sex" name="sex" >
+
+                <option id="hide" selected="selected" disabled>Choose here</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+
+            </select></p>
+
+
+               <label for="cp">Chest Pain Type (cp):</label>
+            <p><select id="cp" name="cp" >
+                <option  id="hide" selected="selected" disabled>Choose here</option>
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non Angina Pain</option>
+                <option value="3">Asymptomatic</option>
+
+          </select></p>
+
+            <p><label for="trestbps">Rest Blood Pressure (trestbps in mmHg): </label>
+            <input type="text" id="trestbps" name="trestbps" placeholder="Enter the Rest bloop pressure"></p>
+
+            <label for="chol">Cholesterol (in mg/dl):</label>
+            <input type="text" id="chol" name="chol" placeholder="Enter the cholesterol value">
+
+           <label for="fbs">Fasting Blood Sugar (Fbs):</label>
+            <input type="text" id="fbs" name="fbs" placeholder="Enter fasting blood sugar value">
+
+          <p>  <label for="restecg">Rest Ecg Value:</label><br></p>
+            <p><select id="restecg" name="restecg" >
+
+                <option id="hide" selected="selected" disabled>Choose here</option>
+                <option value="0">Normal</option>
+                <option value="1">Abmormal ST-T wave</option>
+                <option value="2">Other</option>
+
+            </select></p>
+          <p class="other"> (Other = Shows probable or define left Ventricular hypertrophy by Estes’ criteria)</p>
+
+           <label for="thalach">Maximum Heart Rate:</label>
+            <input type="text" id="thalach" name="thalach" placeholder="Enter the maximum heart rate achieved">
+
+            <p>  <label for="exang">Exercise Included Angina:</label><br></p>
+            <p><select id="exang" name="exang" >
+
+                <option id="hide" selected="selected" disabled>Choose here</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+
+            </select></p>
+
+          <label for="oldpeakst">Old Peak ST:</label>
+            <input type="text" id="oldpeakst" name="oldpeakst" placeholder="Enter the value">
+
+           <p>  <label for="slope">Slope of Peak:</label><br></p>
+            <p><select id="slope" name="slope" >
+
+                <option id="hide" selected="selected" disabled>Choose here</option>
+                <option value="1">Up Sloping</option>
+                <option value="2">Flat</option>
+                <option value="3">Down Sloping</option>
+
+            </select></p>
+
+
+           <label for="ca">Number of vessels colored by Fluroscopy that ranged between 0 to 3:</label>
+          <span id="error_a">Please Enter value between 0 to 3</span>
+            <input type="text" id="ca" name="ca" placeholder="Enter the number of vessels">
+
+          <p>  <label for="thal">Thal:</label><br></p>
+            <p><select id="thal" name="thal" >
+
+                <option id="hide" selected="selected" disabled>Choose here</option>
+                <option value="1">Normal</option>
+                <option value="2">Fixed Defect</option>
+                <option value="3">Rversible Defect</option>
+
+            </select></p>
+          <span></span><br>
+          <button type="submit" class="btn " name="subbtn">Submit Details</button>
+          <div id="hello"></div>
+
+
+
+</form>
+</body>
+
+</html>
